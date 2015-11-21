@@ -55,12 +55,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Counter.cs" />
+    <Compile Include="CounterExtension.cs" />
+    <Compile Include="CounterStaticExtension.cs" />
+    <Compile Include="DesignTimeExtension.cs" />
+    <Compile Include="DesignTimeValue.cs" />
     <Compile Include="Meh.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Services.xaml.cs">
+      <DependentUpon>Services.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StaticExtension.cs" />
     <Compile Include="TypeAndMemberConverter.cs" />
     <Compile Include="TypeAndMemberExtension.cs" />
     <Compile Include="StaticExtensionConverter.cs" />
     <Compile Include="TypeAndMember.cs" />
+    <Compile Include="XamlNameProviderExtension.cs" />
+    <Compile Include="ServiceExtension.cs" />
+    <Compile Include="XamlIndexingReaderExtension.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,6 +85,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Services.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

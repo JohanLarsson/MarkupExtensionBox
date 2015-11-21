@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="MarkupExtensionBox.Services"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MarkupExtensionBox"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:xaml="clr-namespace:System.Xaml;assembly=System.Xaml"
+             xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=System"
+             d:DesignHeight="300"
+             d:DesignWidth="800"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type HeaderedContentControl}">
+            <Setter Property="Header" Value="{Binding ServiceType}" />
+            <Setter Property="Content" Value="{Binding Service}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type HeaderedContentControl}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="Col1" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <ContentPresenter Grid.Column="0"
+                                              Margin="0,0,5,0"
+                                              ContentSource="Header" />
+                            <ContentPresenter Grid.Column="1" ContentSource="Content" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <ItemsControl Grid.IsSharedSizeScope="True">
+        <HeaderedContentControl DataContext="{local:Service {x:Type xaml:IXamlNameProvider}}" />
+        <HeaderedContentControl DataContext="{local:Service {x:Type xaml:IXamlNameResolver}}" />
+
+        <HeaderedContentControl DataContext="{local:Service {x:Type x:IProvideValueTarget}}" />
+        <HeaderedContentControl DataContext="{local:Service {x:Type x:IXamlTypeResolver}}" />
+        <HeaderedContentControl DataContext="{local:Service {x:Type x:IValueSerializerContext}}" />
+        <HeaderedContentControl DataContext="{local:Service {x:Type componentModel:ITypeDescriptorContext}}" />
+        <HeaderedContentControl DataContext="{local:Service {x:Type xaml:IDestinationTypeProvider}}" />
+
+        <HeaderedContentControl DataContext="{local:Service {x:Type xaml:IXamlNamespaceResolver}}" />
+        <HeaderedContentControl DataContext="{local:Service {x:Type xaml:IXamlSchemaContextProvider}}" />
+       
+        <HeaderedContentControl DataContext="{local:Service {x:Type xaml:IRootObjectProvider}}" />
+        <HeaderedContentControl DataContext="{local:Service {x:Type x:IUriContext}}" />
+        <HeaderedContentControl DataContext="{local:Service {x:Type xaml:IAmbientProvider}}" />
+    </ItemsControl>
+</UserControl>

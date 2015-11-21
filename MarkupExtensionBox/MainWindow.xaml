@@ -4,14 +4,39 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:MarkupExtensionBox"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xaml="clr-namespace:System.Xaml;assembly=System.Xaml"
         Title="MainWindow"
         Width="525"
         Height="350"
+        d:DesignHeight="400"
+        d:Fuu="2"
+        d:Meh="sds"
+        local:DesignTimeValue.Value="meh"
         mc:Ignorable="d">
     <StackPanel>
+        <TextBlock FontSize="72" Text="{local:Counter}" />
+        <TextBlock FontSize="72" Text="{local:CounterStatic}" />
+        <TextBlock FontSize="72" Text="{local:DesignTime}" />
+        <ComboBox ItemsSource="{x:Static local:Meh.Comparisons}" />
         <!--<Label Content="{local:TypeAndMember local:TypeAndMemberExtension}"></Label>-->
-        <Label Content="{local:Static local:Meh.Value}" />
-        <Label Content="{x:Static local:Meh.Value}" />
+        <!--<Label Content="{local:Static local:Meh.Value}" />-->
+
+        <!--<ContentPresenter Content="{local:NameSpace local:Meh.Value}" >
+            <ContentPresenter.ContentTemplate>
+                <DataTemplate>
+                    <ItemsControl ItemsSource="{Binding}"></ItemsControl>
+                </DataTemplate>
+            </ContentPresenter.ContentTemplate>
+        </ContentPresenter>-->
+        <!--<ContentPresenter Content="{x:Static Application.Current}">
+            <ContentPresenter.ContentTemplate>
+                <DataTemplate DataType="{x:Type Application}">
+                    <Label Content="{Binding Path=MainWindow.Name}" />
+                </DataTemplate>
+            </ContentPresenter.ContentTemplate>
+        </ContentPresenter>-->
+        <Label Content="{x:Static Application.ResourceAssembly}" />
+        <!--<Label Content="{local:Static local:Meh.Value}" />-->
         <!--<Label Content="{x:Type local:TypeAndMemberExtension}"></Label>-->
     </StackPanel>
 </Window>
